@@ -1,0 +1,138 @@
+{
+  "_version": "1.42.0",
+  "sap.app": {
+    "id": "tra0304.epm04",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.7.6",
+      "toolsId": "64b8b87a-58dc-44a4-bd52-dff7fda44930"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/Z04_EPM_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.102.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "tra0304.epm04.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "tra0304.epm04.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "slide"
+      },
+      "routes": [
+        {
+          "name": "RouteMaster",
+          "pattern": "",
+          "target": [
+            "TargetMaster"
+          ]
+        },
+        {
+          "name": "RouteEditar",
+          "pattern": "/editar/{PartnerId}",
+          "target": [
+            "TargetDetail"
+          ]
+        },
+        {
+          "name": "RouteAdicionar",
+          "pattern": "novoParceiro",
+          "target": [
+            "TargetDetail"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMaster": {
+          "viewName": "Master",
+          "viewId": "Master"
+        },
+        "TargetDetail": {
+          "viewName": "Detail",
+          "viewId": "Details"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "tra0304.epm04.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

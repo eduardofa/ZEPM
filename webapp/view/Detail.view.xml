@@ -1,0 +1,92 @@
+<mvc:View controllerName="tra0304.epm04.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:m="sap.m"
+    xmlns="sap.ui.layout.form">
+    <m:Page id="page" title="Parceiro de Negócio">
+        <m:content>
+
+            <m:VBox class="sapUiSmallMargin">
+                <SimpleForm id="formParceiro"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    title="Parceiro de Negócio"
+                    labelSpanXL="3"
+                    labelSpanL="3"
+                    labelSpanM="3"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="4"
+                    emptySpanL="4"
+                    emptySpanM="4"
+                    emptySpanS="0"
+                    columnsXL="1"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false" >
+                    <toolbar>
+                        <m:OverflowToolbar >
+                            <m:content>
+                                <!-- botão fica a direita -->
+                                <m:ToolbarSpacer />
+                                <m:Button   icon="sap-icon://nav-back"
+                                            text="Voltar" 
+                                            type="Emphasized"
+                                            press="back_onclick"/>
+                                <m:Button   icon="sap-icon://edit"
+                                            text="Editar" 
+                                            type="Emphasized"
+                                            press="editar_onclick"
+                                            visible="{botoes>/visualizar}"/>
+                                <m:Button   icon="sap-icon://cancel"
+                                            text="Cancelar" 
+                                            type="Reject"
+                                            press="cancel_onclick"
+                                            visible="{botoes>/editar}"/>
+                                <m:Button   icon="sap-icon://save"
+                                            text="Salvar" 
+                                            type="Accept"
+                                            press="save_onclick"
+                                            visible="{botoes>/editar}"/>
+                            </m:content>
+                        </m:OverflowToolbar>
+                        
+                    </toolbar>
+                    <content>
+                        <m:Label class="sapUiTinyMarginTop" text="Id"  />
+                        <m:Input value="{PartnerId}" enabled="false" />
+                        <m:Label class="sapUiTinyMarginTop" text="Tipo" />
+                        <m:Input value="{PartnerType}" editable="{editavel>/editavel}"/>
+                        <m:Label class="sapUiTinyMarginTop" text="Nome" />
+                        <m:Input value="{PartnerName1}" editable="{editavel>/editavel}"/>
+       
+                        <m:Label class="sapUiTinyMarginTop" text="Nome 2" />
+                        <m:Input value="{PartnerName2}" editable="{editavel>/editavel}"/>
+                        <m:Label class="sapUiTinyMarginTop" text="Termo de pesquisa" />
+                        <m:Input value="{SearchTerm1}" editable="{editavel>/editavel}"/>
+   
+                        <m:Label class="sapUiTinyMarginTop" text="Termo de pesquisa 2" />
+                        <m:Input value="{SearchTerm2}" editable="{editavel>/editavel}"/>
+                        <m:Label class="sapUiTinyMarginTop" text="País" />
+                        <m:Input value="{Country}" editable="{editavel>/editavel}"/>
+                        <m:Label class="sapUiTinyMarginTop" text="Bairro" />
+                        <m:Input value="{District}" editable="{editavel>/editavel}"/>
+                       
+                        <m:Label class="sapUiTinyMarginTop" text="Região" />
+                        <m:Input value="{Region}" editable="{editavel>/editavel}"/>
+                        <m:Label class="sapUiTinyMarginTop" text="Cidade" />
+                        <m:Input value="{City}" editable="{editavel>/editavel}"/>
+       
+                        <m:Label class="sapUiTinyMarginTop" text="Rua" />
+                        <m:Input value="{Street}" editable="{editavel>/editavel}"/>
+                           
+                        <m:Label class="sapUiTinyMarginTop" text="Código Postal" />
+                        <m:Input value="{ZipCode}" editable="{editavel>/editavel}" liveChange="zipcode_onchange"/>
+   
+                    </content>
+
+                </SimpleForm>
+            </m:VBox>           
+
+        </m:content>
+    </m:Page>
+</mvc:View>

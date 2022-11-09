@@ -1,0 +1,46 @@
+<mvc:View controllerName="tra0304.epm04.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+
+            <Table id="parceiros"
+                    items="{/BusinessPartners}">
+                
+                    <columns>
+                        <Column >
+                            <Label text="Nome"/>
+                        </Column>
+                        <Column >
+                            <Label text="Tipo"/>
+                        </Column>
+                        <Column >
+                            <Label text="Endereço"/>
+                        </Column>
+                        <Column >
+                            <Label text="País"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem type="Navigation"
+                                        press="_onPressItem">
+                            <ObjectIdentifier   title="{PartnerID}"
+                                                text="{PartnerName1}" />
+                            <Label text="{PartnerType}" />
+                            <Label text="{Street} {HouseNumber}" />
+                            <Label text="{Country}" />
+                        </ColumnListItem>
+                    </items>
+            </Table>
+
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <content>
+                    <ToolbarSpacer />
+                    <Button type="Emphasized" text="Adicionar" press="add_onclick" />
+                </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
